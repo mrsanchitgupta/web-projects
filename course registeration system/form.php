@@ -104,11 +104,24 @@ text-shadow:4px 4px 4px #aaa;
 <script>
 function validForm()
 
-{var x=document.forms["_form"]["age"].value;
- if (x<18)
-  
+{
+ var x=document.forms["_form"]["age"].value;
+ if (x<18) 
  {alert("age above 18 years only");
      return false;}
+var syntax=document.forms["_form"]["signature"].value;
+var syn=document.forms["_form"]["myfile"].value;
+
+if((syntax.slice(syntax.length-4,syntax.length)===".jpg" || syntax.slice(syntax.length-4,syntax.length)===".png") &&(syn.slice(syn.length-4,syn.length)===".jpg" || syn.slice(syn.length-4,syn.length)===".png") )
+{
+
+}
+else
+{
+alert("Sorry, only JPG, PNG files are allowed.")
+return false ;
+}
+
 
 }
 </script>
