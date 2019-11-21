@@ -17,14 +17,34 @@ $sign_file=$sign_dir.basename($_FILES["signature"]["name"]);
  include 'uploadcheck.php';
  $sql = "INSERT INTO form (firstname, lastname, age,gender,address,rollno,semester,branch,myfile,signature)
 VALUES ('$firstname','$lastname','$age','$gender','$address','$rollno','$semester','$branch','$target_file','$sign_file')";
- 
-if ($conn->query($sql) === TRUE) {
-    echo  "<script>alert('values submitted')
-window.location.href='printx.php?rollno=$rollno&semester=$semester'
-</script>";
-} else {
+//new code begins
+$result=$conn->query("select rollno from fees where rollno='$rollno'");
+$row=$result->fetch_assoc();
+$frollno=$row['rollno'];
+if($result->num_rows!=0)
+{ 
+  if($rollno==$frollno)
+  {
+    if ($conn->query($sql) === TRUE) 
+    {
+        echo  "<script>alert('values submitted')
+                window.location.href='printx.php?rollno=$rollno&semester=$semester'
+               </script>";
+    } 
+    else 
+       {
     echo "Error: " . $sql . "<br>" . $conn->error;
-}
+       }
+  }
+  }
+   else
+      {
+       echo"<script> alert('fees not submitted')
+       window.location.href='fees.php'</script>";
+      }
+
+   
+
 //$sql = "SELECT id, firstname, lastname ,age,gender,address,myfile FROM form";
 /*$result = $conn->query($sql);
 
