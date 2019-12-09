@@ -40,7 +40,7 @@ if($result->num_rows!=0)
    else
       {
        echo"<script> alert('fees not submitted')
-       window.location.href='fees.php'</script>";
+       window.location.href='formfee.php'</script>";
       }
 
    

@@ -45,7 +45,7 @@ $myfile=$row['myfile'];
 <table style="width:100%">
   <tr><img src='<?php echo $myfile;?>' alt="photo" style="width:100px;height:100px"></tr>
   <tr><th>Firstname:</th><td>
-   <?php echo"  $row[firstname] ";?></td></            	tr>                                                                                                                                                                                                                                                                                                                                       
+   <?php echo"  $row[firstname] ";?></td></tr>                                                                                                                                                                                                                                                                                                                                       
 
 
 <tr><th>Lastname:</th><td> 
